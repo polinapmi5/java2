@@ -95,14 +95,16 @@ public class Main {
                 Fraction f2 = new Fraction(numerator2, denominator2);
                 Fraction f3 = new Fraction(numerator3, denominator3);
 
-                // Сложная операция
-                Fraction sumResult = f1.sum(f2);
-                sumResult.simplify();
-                Fraction divideResult = sumResult.divide(f3);
-                divideResult.simplify();
-                Fraction finalResult = divideResult.subtract(new Fraction(5, 1));
-                finalResult.simplify();
-                System.out.println("(" + f1 + " + " + f2 + ") / " + f3 + " - 5 = " + finalResult);
+                // Вывод результатов операций с другой дробью
+                System.out.println("Сложение: " + f1 + " + " + f2 + " = " + f1.sum(f2));
+                System.out.println("Вычитание: " + f1 + " - " + f2 + " = " + f1.subtract(f2));
+                System.out.println("Умножение: " + f1 + " * " + f2 + " = " + f1.multiply(f2));
+                System.out.println("Деление: " + f1 + " / " + f2 + " = " + f1.divide(f2));
+
+                // Выполнение сложной операции
+                Fraction result = f1.sum(f2).divide(f3).subtract(5);
+                result.simplify();
+                System.out.println("(" + f1 + " + " + f2 + ") / " + f3 + " - 5 = " + result);
 
                 break; // Выходим из цикла после успешного ввода
 

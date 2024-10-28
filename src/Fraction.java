@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Fraction {
     private int numerator;
     private int denominator;
@@ -12,10 +14,18 @@ public class Fraction {
     }
 
     // Геттеры и сеттеры
-    public int getNumerator() { return numerator; }
-    public void setNumerator(int numerator) { this.numerator = numerator; }
+    public int getNumerator() {
+        return numerator;
+    }
 
-    public int getDenominator() { return denominator; }
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    public int getDenominator() {
+        return denominator;
+    }
+
     public void setDenominator(int denominator) {
         if (denominator == 0) {
             throw new IllegalArgumentException("Знаменатель не может быть нулем");
@@ -49,6 +59,23 @@ public class Fraction {
         int newNumerator = this.numerator * other.denominator;
         int newDenominator = this.denominator * other.numerator;
         return new Fraction(newNumerator / gcd(newNumerator, newDenominator), newDenominator / gcd(newNumerator, newDenominator));
+    }
+
+    // Методы для работы с целыми числами
+    public Fraction sum(int other) {
+        return sum(new Fraction(other, 1));
+    }
+
+    public Fraction subtract(int other) {
+        return subtract(new Fraction(other, 1));
+    }
+
+    public Fraction multiply(int other) {
+        return multiply(new Fraction(other, 1));
+    }
+
+    public Fraction divide(int other) {
+        return divide(new Fraction(other, 1));
     }
 
     // Метод для получения строкового представления
